@@ -1,24 +1,9 @@
 ---
-import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import TopLayout from "@layouts/TopLayout.astro"
 import BottomLayout from "@layouts/BottomLayout.astro"
 import { WORK } from "@consts"
 
-const collection = await getCollection("work")
-
-collection.sort((a, b) => new Date(b.data.dateStart).getTime() - new Date(a.data.dateStart).getTime())
-
-function formatWorkDate(input: Date | string) {
-  if (typeof input === "string") return input
-
-  const month = input.toLocaleDateString("en-US", {
-    month: "short",
-  })
-
-  const year = new Date(input).getFullYear()
-  return `${month} ${year}`
-}
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -26,7 +11,7 @@ function formatWorkDate(input: Date | string) {
   </TopLayout>
   
   <BottomLayout>
-    <div class="flex flex-col gap-4 -z-10 opacity-70">
+    <div class="flex flex-col gap-4 -z-10 opacity-90">
 
       <div class="animate page-heading -z-10">
         <nav class="flex flex-wrap justify-center bg-white border-gray-200 dark:bg-black opacity-90">
@@ -73,7 +58,7 @@ function formatWorkDate(input: Date | string) {
 
         <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="/datos" class="p-2">
-              <img class="rounded-t-lg" src="datos.png" alt="" />
+              <img class="rounded-t-lg" src="datos.webp" alt="" />
           </a>
           <div class="p-5">
               <a href="/datos">
@@ -94,8 +79,8 @@ function formatWorkDate(input: Date | string) {
         </div>
 
         <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="/mx40">
-              <img class="rounded-t-lg" src="mx40.svg" alt="" />
+          <a href="/mx40" class="p-2">
+              <img class="rounded-t-lg" src="mx40.webp" alt="" />
           </a>
           <div class="p-5">
               <a href="/mx40">
@@ -105,7 +90,9 @@ function formatWorkDate(input: Date | string) {
           <div class="p-5">
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Conexionado de las controladoras Novastar MX-40</p>
           </div>
+
           <div class="p-5">
+
               <a href="/mx40" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Documento
                   <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -117,8 +104,8 @@ function formatWorkDate(input: Date | string) {
       </div>
       <div class="flex mt-4 gap-4 justify-center">
       <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="/resolucion">
-            <img class="rounded-t-lg" src="resolucion.svg" alt="" />
+        <a href="/resolucion" class="p-2">
+            <img class="rounded-t-lg" src="resolucion.webp" alt="" />
         </a>
         <div class="p-5">
             <a href="resolucion">
@@ -139,8 +126,8 @@ function formatWorkDate(input: Date | string) {
       </div>
 
       <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="/electrico">
-            <img class="rounded-t-lg" src="electrico.svg" alt="" />
+        <a href="/electrico" class="p-2">
+            <img class="rounded-t-lg" src="electrico.webp" alt="" />
         </a>
         <div class="p-5">
             <a href="/electrico">
@@ -161,15 +148,15 @@ function formatWorkDate(input: Date | string) {
       </div>
       <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="/cabinet" class="p-2">
-            <img class="rounded-t-lg" src="cabinet.png" alt=""/>
+            <img class="rounded-t-lg" src="cabinet.webp" alt=""/>
         </a>
         <div class="p-5">
             <a href="/cabinet">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cableado Eléctrico</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cabinet</h5>
             </a>
           </div>
           <div class="p-5">
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Esquema de conexión del cableado eléctrico de la pantalla LED</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Detalle del cabinet que forma la pantalla led</p>
           </div>
           <div class="p-5">
             <a href="/cabinet" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -181,8 +168,8 @@ function formatWorkDate(input: Date | string) {
         </div>
       </div>
     </div>
-      <div class="top-0 absolute -z-20 opacity-15 justify-center w-screen">
-        <img src="auditorio.png" alt="">
+      <div class="top-0 fixed -z-20 opacity-15 justify-center w-screen">
+        <img src="auditorio.webp" alt="">
       </div>
     </div>
   </BottomLayout>

@@ -1,24 +1,9 @@
 ---
-import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import TopLayout from "@layouts/TopLayout.astro"
 import BottomLayout from "@layouts/BottomLayout.astro"
 import { WORK } from "@consts"
 
-const collection = await getCollection("work")
-
-collection.sort((a, b) => new Date(b.data.dateStart).getTime() - new Date(a.data.dateStart).getTime())
-
-function formatWorkDate(input: Date | string) {
-  if (typeof input === "string") return input
-
-  const month = input.toLocaleDateString("en-US", {
-    month: "short",
-  })
-
-  const year = new Date(input).getFullYear()
-  return `${month} ${year}`
-}
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -51,7 +36,7 @@ function formatWorkDate(input: Date | string) {
 <BottomLayout>
   <div class="flex justify-center mb-4 opacity-95">
     <div class="absolute -z-20 opacity-5">
-      <img src="auditorio.png" alt="">
+      <img src="auditorio.webp" alt="">
     </div>
     <p class="font-medium text-balance">Hay un total de <span class="text-[#09f]"> 32 circuitos </span>en la pantalla LED, identificados como<span class="text-[#09f]"> P1-L1 hasta P16-L2.</span><br>
       La pantalla está <span class="text-[#09f]">dividida en dos secciones,</span> cada una controlada por un equipo <span class="text-[#09f]">Novastar MX-40.</span><br> El primer equipo gestiona los 16 circuitos desde <span class="text-[#09f]">P1-L1 hasta P16-L1,</span> mientras que el segundo equipo se encarga de los circuitos de <span class="text-[#09f]">P1-L2 hasta P16-L2.</span><br>
@@ -59,7 +44,7 @@ function formatWorkDate(input: Date | string) {
     </p>
   </div>
   <div id="img" class="flex justify-center">
-    <img src="datos.png" alt="estructura">
+    <img src="datos.webp" alt="estructura">
   </div>
   </BottomLayout>
 </PageLayout>
