@@ -1,30 +1,220 @@
 ---
-import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import TopLayout from "@layouts/TopLayout.astro"
 import BottomLayout from "@layouts/BottomLayout.astro"
-import Blog from "@components/Blog"
-import { BLOG } from "@consts"
+import { WORK } from "@consts"
 
-const posts = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-
-const tags = [...new Set(posts.flatMap(post => post.data.tags))]
-  .sort((a, b) => a.localeCompare(b))
 ---
 
-<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+<PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <TopLayout>
-    <div class="animate page-heading">
-      {BLOG.TITLE}
-    </div>
   </TopLayout>
+  
   <BottomLayout>
-    <div class="animate">
-      <Blog client:load tags={tags} data={posts} />
+    <div class="flex flex-col gap-4 -z-10 opacity-90">
+
+      <div class="animate page-heading -z-10">
+        <nav class="flex flex-wrap justify-center bg-white border-gray-200 dark:bg-black opacity-90">
+          <div class="max-w-screen-xl flex flex-wrap items-center justify-center gap-6 mx-auto p-4">
+            <a href="https://www.telefonica.com/es/" target="_blank" class="flex items-start space-x-3 rtl:space-x-reverse">
+                <img src="logo-tele.jpg" class="h-8" alt="Logo" />
+            </a>
+            <div class="flex justify-center">
+              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                  <a href="https://oss.novastar.tech/Coex%20VMP%20V1.2.3_Windows.zip" target="_blank" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 p-4" aria-current="page">Descargar Software COEX VMP</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </nav>
+
+      <div class="flex gap-4 justify-center">
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/source.html">
+              <img class="rounded-t-lg mt-4 p-2" src="source.webp" alt="source" />
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/source.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  Software COEX VMP
+                  </h5>
+              </a>
+          </div>
+          <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción SOURCE
+              </p>
+          </div>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/source.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/layout.html" class="p-2">
+              <img class="rounded-t-lg" src="layouttumb.webp" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/layout.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Software COEX VMP
+                  </h5>
+              </a>
+          </div>
+          <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción LAYOUT
+              </p>
+          </div>
+          <div class="p-5">
+              <a href="/https://documentacion-beta.vercel.app/layout.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/correction.html" class="p-2">
+              <img class="rounded-t-lg" src="correction.webp" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/correction.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Software COEX VMP</h5>
+              </a>
+          </div>
+          <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción CORRECTION</p>
+          </div>
+
+          <div class="p-5">
+
+              <a href="https://documentacion-beta.vercel.app/correction.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex mt-4 gap-4 justify-center">
+
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/processing.html" class="p-2">
+              <img class="rounded-t-lg" src="processingr.webp" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/processing.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Software COEX VMP</h5>
+              </a>
+          </div>
+          <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción PROCESSING</p>
+          </div>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/processing.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/screen.html" class="p-2">
+              <img class="rounded-t-lg" src="screen.webp" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/screen.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Software COEX VMP</h5>
+              </a>
+            </div>
+            <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción SCREEN</p>
+            </div>
+            <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/screen.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/monitor.html" class="p-2">
+              <img class="rounded-t-lg" src="monitor.webp" alt=""/>
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/monitor.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Software COEX VMP</h5>
+              </a>
+            </div>
+            <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción MONITOR</p>
+            </div>
+            <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/monitor.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex mt-4 gap-4 justify-center">
+        <div class="flex flex-col opacity-80 justify-between max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://documentacion-beta.vercel.app/preset.html" class="p-2">
+              <img class="rounded-t-lg" src="preset.webp" alt=""/>
+          </a>
+          <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/preset.html">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Software COEX VMP</h5>
+              </a>
+            </div>
+            <div class="p-5">
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Tutorial de la opción PRESET</p>
+            </div>
+            <div class="p-5">
+              <a href="https://documentacion-beta.vercel.app/preset.html" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Documento
+                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-0 fixed -z-20 opacity-15 justify-center w-screen">
+        <img src="auditorio.webp" alt="">
+      </div>
     </div>
   </BottomLayout>
 </PageLayout>
-
-
