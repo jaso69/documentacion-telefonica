@@ -45,6 +45,10 @@ export const LINKS: Links = [
     TEXT: "Tutoriales", 
     HREF: "/tuto", 
   },
+  { 
+    TEXT: "IA PIXEL", 
+    HREF: "/pixel", 
+  },
 ]
 
 // Socials
