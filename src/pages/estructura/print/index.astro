@@ -1,0 +1,19 @@
+
+    <div id="img" class="flex gap-4 bg-white">
+        <img src="/public/estructura.svg" alt="estructura">
+    </div> 
+    <script lang="javascript" is:inline>
+        const printSection = document.createElement('div')
+        document.querySelector('div').style.display = 'flex'
+        document.querySelector('div').style.height = '90vh'
+        const elemToPrint = document.querySelector('#img')
+        printSection.innerHTML = elemToPrint
+        let domClone = elemToPrint.cloneNode(true);
+        printSection.appendChild(domClone);
+        window.print(); 
+        window.onafterprint = afterPrint;
+        function afterPrint(){
+            window.location.replace('/estructura')
+        }
+        setInterval(afterPrint, 500)
+    </script>
