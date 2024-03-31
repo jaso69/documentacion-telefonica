@@ -1,5 +1,5 @@
-<div id="img" class="flex gap-4 mx-auto">
-    <img src="../datos.webp" alt="estructura">
+<div id="img" class="flex gap-4 bg-white">
+    <img src="../5x5estruct.webp" alt="estructura" width="2000px">
 </div> 
 <script lang="javascript" is:inline>
     const printSection = document.createElement('div')
@@ -12,7 +12,7 @@
     window.print(); 
     window.onafterprint = afterPrint;
     function afterPrint(){
-        window.location.replace('/datos')
+        window.location.replace('/estructura5x5')
     }
     setInterval(afterPrint, 500)
 </script>
