@@ -117,3 +117,26 @@ to {
   transform: rotate(360deg);
 }
 }
+
+.move{
+  animation-name: move;
+  animation-duration: 1s;
+  animation-direction: reverse;
+  animation-timing-function: ease-in;
+  &:hover{
+    background: rgb(41, 83, 219);
+  }
+}
+
+@keyframes move {
+  0%{
+      /* transform: translateY(0px); */
+      height: 68%;
+      opacity: 1;
+  }
+  to{
+      /* transform: translateY(00px); */
+      height: 0%;
+      opacity: 0;
+  }
+}
