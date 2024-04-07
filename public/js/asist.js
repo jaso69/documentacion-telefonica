@@ -22,7 +22,7 @@ try{
         prompt = {prompt: p}
         //message.push(prompt)
         loading.innerHTML = 'Un momento....'
-        url = 'https://jaweb.es:3000/api/gpt?prompt=' + p
+        url = 'https://jaweb.es:3000/api/telefonica?prompt=' + p
         Nuevo(prompt)
     })
     
